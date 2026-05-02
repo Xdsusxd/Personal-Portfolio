@@ -1,7 +1,4 @@
-// ══════════════════════════════════════════════════════════════
-// CONTENT FILE — Edita SOLO este archivo para cambiar textos,
-// imágenes y datos del sitio.
-// ══════════════════════════════════════════════════════════════
+
 
 export const siteContent = {
   global: {
@@ -16,34 +13,19 @@ export const siteContent = {
     ],
     heading: "Antonio Picazo",
     subheading: "KarAP | Ex Productor musical y actual Programador",
-    // ↓ Retrato/avatar PNG con fondo transparente, mín 520×800 px
+
     portraitImage: "/images/hero.webp",
   },
 
   marquee: {
-    // ↓ GIFs o WebP animados, landscape 420×270 px recomendado
-    images: [
-      "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
-      "https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif",
-      "https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif",
-      "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-      "https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif",
-      "https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif",
-      "https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif",
-      "https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif",
-      "https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif",
-      "https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif",
-      "https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif",
-      "https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif",
-      "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif",
-      "https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif",
-      "https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif",
-      "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-      "https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif",
-      "https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif",
-      "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-      "https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif",
-      "https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif"
+    words: [
+      "CYBERSECURITY",
+      "ARTIFICIAL INTELLIGENCE",
+      "ROBOTICS",
+      "SOFTWARE ENGINEERING",
+      "3D EXPERIENCES",
+      "BACKEND DEV",
+      "MACHINE LEARNING"
     ]
   },
 
@@ -51,7 +33,7 @@ export const siteContent = {
     heading: "About me",
     text: "Programador desde hace 4 años, deje la produccion musical y empeze a aprender sobre ciberseguridad, ia, robotica y programacion",
     decorativeImages: {
-      // ↓ Íconos/sprites decorativos, PNG transparente ~210×210 px
+
       topLeft: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png",
       bottomLeft: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png",
       topRight: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png",
@@ -63,24 +45,24 @@ export const siteContent = {
     heading: "Projects",
     items: [
       {
-        title: "Stellar Voyage",
-        category: "Web 3D",
-        description: "Experiencia inmersiva espacial con shaders personalizados y navegación orbital.",
-        // ↓ Screenshot/preview del proyecto, landscape 640×400 px
+        title: "Personal Website",
+        category: "Web Frontend",
+        description: "Web de portfolio personal de KarAP con TS y react.",
+
         image: "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
         color: "#6366f1",
       },
       {
-        title: "Nexora Platform",
-        category: "Motion Design",
-        description: "Dashboard interactivo con animaciones fluidas y visualización de datos en tiempo real.",
+        title: "Ecommerce site",
+        category: "Web Backend",
+        description: "Sitio de dropshiping con backend funcional con Python y golang.",
         image: "https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif",
         color: "#ec4899",
       },
       {
-        title: "Aethera Studio",
-        category: "Branding 3D",
-        description: "Identidad visual completa con elementos 3D generativos y assets animados.",
+        title: "PathTracing",
+        category: "Graphic Design",
+        description: "PathTracer creado con C++ y Vulkan en tiempo real funcional.",
         image: "https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif",
         color: "#14b8a6",
       },
@@ -132,6 +114,9 @@ export const siteContent = {
       { name: "Flutter", description: "Cross-Platform", iconSlug: "flutter" },
       { name: "Linux", description: "OS", iconSlug: "linux" },
       { name: "Kali Linux", description: "Security", iconSlug: "kalilinux" },
+      { name: "Java", description: "Backend & Android", iconSlug: "java" },
+      { name: "Blender", description: "3D Modeling", iconSlug: "blender" },
+      { name: "Three.js", description: "Web 3D", iconSlug: "threejs" },
     ]
   },
 

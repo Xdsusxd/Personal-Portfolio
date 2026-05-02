@@ -6,7 +6,6 @@ import { FadeIn } from '../components/FadeIn';
 import { siteContent } from '../content';
 import * as THREE from 'three';
 
-// ── Wireframe shape component ────────────────────────────
 type GeoType = 'box' | 'sphere' | 'tetra' | 'octa' | 'cone';
 
 function WireShape({ position, speed, size, geoType }: {
@@ -45,7 +44,6 @@ function WireShape({ position, speed, size, geoType }: {
   );
 }
 
-// ── Scene with wireframe shapes ──────────────────────────
 function Scene() {
   const shapes = useMemo(() => [
     { position: [-4, 2.5, -3] as [number, number, number], speed: 0.8, size: 0.9, geoType: 'box' as GeoType },
@@ -68,63 +66,65 @@ function Scene() {
   );
 }
 
-// ── Project Card (Image-less, purely typographic & glassmorphic) ──
-function ProjectCard({ project, index }: {
+function ProjectRow({ project, index }: {
   project: typeof siteContent.projects.items[0];
   index: number;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ['start end', 'center center'],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [60, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
   return (
-    <motion.div
-      ref={cardRef}
-      style={{ y, opacity }}
-      className="group relative rounded-[2rem] p-8 sm:p-10 flex flex-col justify-between h-[320px] sm:h-[380px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]"
+    <motion.div 
+      initial="initial"
+      whileHover="hover"
+      className="group relative border-b border-white/10 first:border-t py-10 md:py-16 cursor-pointer overflow-hidden"
     >
-      {/* Dynamic glow based on project color */}
-      <div 
-        className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
-        style={{ backgroundColor: project.color }}
-      />
       
-      {/* Content wrapper */}
-      <div className="relative z-10 flex flex-col h-full">
-        <div className="flex justify-between items-start mb-auto">
-          <span className="text-xs sm:text-sm uppercase tracking-[0.3em] font-medium" style={{ color: project.color, fontFamily: "'Kanit', sans-serif" }}>
-            {project.category}
+      <motion.div 
+        variants={{
+          initial: { height: '0%' },
+          hover: { height: '100%' }
+        }}
+        transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
+        className="absolute bottom-0 left-0 w-full bg-[#D7E2EA] z-0 origin-bottom"
+      />
+
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center px-4 md:px-10 max-w-7xl mx-auto">
+
+        <div className="md:col-span-2">
+          <span className="text-white/40 font-mono text-lg md:text-xl group-hover:text-black/40 transition-colors duration-300">
+            0{index + 1} 
           </span>
-          <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white/50 group-hover:bg-white/10 transition-all duration-300">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
         </div>
 
-        <div>
-          <h3 className="text-white text-3xl sm:text-4xl md:text-5xl font-black mb-4 leading-none tracking-tight group-hover:text-white transition-colors duration-300" style={{ fontFamily: "'Archivo Black', sans-serif" }}>
+        <div className="md:col-span-6">
+          <motion.h3 
+            variants={{
+              initial: { x: 0 },
+              hover: { x: 24 }
+            }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter group-hover:text-black transition-colors duration-300" 
+            style={{ fontFamily: "'Archivo Black', sans-serif" }}
+          >
             {project.title}
-          </h3>
-          <p className="text-[#D7E2EA]/70 text-sm md:text-base leading-relaxed line-clamp-3" style={{ fontFamily: "'Kanit', sans-serif" }}>
+          </motion.h3>
+        </div>
+
+        <div className="md:col-span-4 flex flex-col items-start md:items-end text-left md:text-right">
+          <span 
+            className="text-xs md:text-sm uppercase tracking-widest font-bold mb-3 transition-colors duration-300" 
+            style={{ color: project.color, fontFamily: "'Kanit', sans-serif" }}
+          >
+            {project.category}
+          </span>
+          <p className="text-white/50 text-sm group-hover:text-black/70 transition-colors duration-300 max-w-xs" style={{ fontFamily: "'Kanit', sans-serif" }}>
             {project.description}
           </p>
         </div>
-      </div>
-
-      {/* Big Watermark Number */}
-      <div className="absolute -bottom-4 right-4 sm:right-6 text-[100px] sm:text-[140px] font-black opacity-[0.03] leading-none pointer-events-none transition-opacity duration-500 group-hover:opacity-[0.08]" style={{ fontFamily: "'Archivo Black', sans-serif", color: project.color }}>
-        {String(index + 1).padStart(2, '0')}
+        
       </div>
     </motion.div>
   );
 }
 
-// ── Main Section ─────────────────────────────────────────
 export const ProjectsSection = () => {
   const { heading, items } = siteContent.projects;
   const sectionRef = useRef<HTMLElement>(null);
@@ -138,7 +138,7 @@ export const ProjectsSection = () => {
 
   return (
     <section ref={sectionRef} id="projects" className="relative bg-[#0C0C0C] py-24 sm:py-32 md:py-40 min-h-screen">
-      {/* ── 3D Canvas — wireframe shapes ── */}
+      
       <motion.div style={{ opacity: canvasOpacity }} className="absolute inset-0 z-0">
         <Canvas
           camera={{ position: [0, 0, 8], fov: 45 }}
@@ -150,7 +150,6 @@ export const ProjectsSection = () => {
         </Canvas>
       </motion.div>
 
-      {/* ── Content ────────────────────── */}
       <div className="relative z-10 px-5 sm:px-8 md:px-10 max-w-6xl mx-auto">
         <FadeIn delay={0} y={40}>
           <h2 className="hero-heading font-black uppercase text-center text-[clamp(3rem,10vw,120px)] leading-none mb-6" style={{ fontFamily: "'Kanit', sans-serif" }}>
@@ -161,9 +160,9 @@ export const ProjectsSection = () => {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+        <div className="flex flex-col w-full">
           {items.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
+            <ProjectRow key={project.title} project={project} index={i} />
           ))}
         </div>
       </div>

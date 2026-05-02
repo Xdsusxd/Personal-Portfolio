@@ -6,9 +6,8 @@ export const MarqueeSection = () => {
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
 
-  const { images } = siteContent.marquee;
-  const row1Images = [...images.slice(0, 11), ...images.slice(0, 11), ...images.slice(0, 11)];
-  const row2Images = [...images.slice(11), ...images.slice(11), ...images.slice(11)];
+  const { words } = siteContent.marquee;
+  const repeatedWords = [...words, ...words, ...words, ...words, ...words];
 
   useEffect(() => {
     let animationFrameId: number;
@@ -24,14 +23,14 @@ export const MarqueeSection = () => {
     const update = () => {
       if (sectionRef.current) {
         const sectionTop = sectionRef.current.offsetTop;
-        const calcOffset = (currentScrollY - sectionTop + window.innerHeight) * 0.3;
+        const calcOffset = (currentScrollY - sectionTop + window.innerHeight) * 0.4;
         targetOffset += (calcOffset - targetOffset) * 0.1;
 
         if (row1Ref.current) {
-          row1Ref.current.style.transform = `translate3d(${targetOffset - 200}px, 0, 0)`;
+          row1Ref.current.style.transform = `translate3d(${targetOffset - 1000}px, 0, 0)`;
         }
         if (row2Ref.current) {
-          row2Ref.current.style.transform = `translate3d(${-(targetOffset - 200)}px, 0, 0)`;
+          row2Ref.current.style.transform = `translate3d(${-(targetOffset - 1000)}px, 0, 0)`;
         }
       }
       animationFrameId = requestAnimationFrame(update);
@@ -48,36 +47,40 @@ export const MarqueeSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden flex flex-col gap-3"
+      className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden flex flex-col gap-2 sm:gap-6"
     >
       <div
         ref={row1Ref}
-        className="flex gap-3 w-max"
+        className="flex gap-8 w-max items-center"
         style={{ willChange: 'transform' }}
       >
-        {row1Images.map((src, idx) => (
-          <img
-            key={`row1-${idx}`}
-            src={src}
-            loading="lazy"
-            alt="Work preview"
-            className="w-[420px] h-[270px] rounded-2xl object-cover shrink-0"
-          />
+        {repeatedWords.map((word, idx) => (
+          <div key={`row1-${idx}`} className="flex items-center gap-8">
+            <span 
+              className="text-transparent font-black uppercase text-[60px] sm:text-[100px] md:text-[140px] leading-none whitespace-nowrap"
+              style={{ fontFamily: "'Archivo Black', sans-serif", WebkitTextStroke: '2px rgba(255,255,255,0.15)' }}
+            >
+              {word}
+            </span>
+            <span className="text-white/20 text-4xl">✦</span>
+          </div>
         ))}
       </div>
       <div
         ref={row2Ref}
-        className="flex gap-3 w-max"
+        className="flex gap-8 w-max items-center"
         style={{ willChange: 'transform' }}
       >
-        {row2Images.map((src, idx) => (
-          <img
-            key={`row2-${idx}`}
-            src={src}
-            loading="lazy"
-            alt="Work preview"
-            className="w-[420px] h-[270px] rounded-2xl object-cover shrink-0"
-          />
+        {repeatedWords.slice().reverse().map((word, idx) => (
+          <div key={`row2-${idx}`} className="flex items-center gap-8">
+            <span 
+              className="text-white font-black uppercase text-[60px] sm:text-[100px] md:text-[140px] leading-none whitespace-nowrap"
+              style={{ fontFamily: "'Archivo Black', sans-serif" }}
+            >
+              {word}
+            </span>
+            <span className="text-white/20 text-4xl">✦</span>
+          </div>
         ))}
       </div>
     </section>

@@ -16,7 +16,6 @@ export const HeroSection = () => {
   const headingOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const navOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
-  // Mouse tracking for portrait
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { damping: 25, stiffness: 120, mass: 0.5 });
@@ -41,7 +40,7 @@ export const HeroSection = () => {
 
   return (
     <section ref={sectionRef} className="h-screen flex flex-col overflow-hidden relative bg-[#0C0C0C]">
-      {/* ── Navbar ──────────────────── */}
+      
       <motion.nav
         style={{ opacity: navOpacity }}
         className="flex justify-between text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] px-6 md:px-10 pt-6 md:pt-8 relative z-30"
@@ -55,7 +54,6 @@ export const HeroSection = () => {
         ))}
       </motion.nav>
 
-      {/* ── Heading ─────────────────── */}
       <div className="flex-1 flex flex-col justify-center relative z-20 pointer-events-none">
         <motion.div style={{ scale: headingScale, opacity: headingOpacity }} className="w-full text-center px-4">
           <div>
@@ -81,7 +79,6 @@ export const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* ── Bottom bar ──────────────── */}
       <div className="flex justify-between items-end pb-7 sm:pb-8 md:pb-10 px-6 md:px-10 relative z-30">
         <FadeIn delay={0.5} y={20}>
           <p className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug text-[clamp(0.75rem,1.4vw,1.5rem)] max-w-[200px] sm:max-w-[260px] md:max-w-[320px]" style={{ fontFamily: "'Kanit', sans-serif" }}>
@@ -96,7 +93,6 @@ export const HeroSection = () => {
         </FadeIn>
       </div>
 
-      {/* ── Portrait following cursor ── */}
       <div className="absolute inset-0 flex items-center justify-center z-[25] pointer-events-none">
         <motion.div
           style={{ x: smoothX, y: smoothY }}
@@ -114,7 +110,6 @@ export const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* ── Ambient glow ────────────── */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#646973] opacity-[0.04] blur-[120px]" />
       </div>

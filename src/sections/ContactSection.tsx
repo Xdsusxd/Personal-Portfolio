@@ -39,7 +39,7 @@ export const ContactSection = () => {
 
   return (
     <section id="contact" className="bg-[#0C0C0C] relative py-20 sm:py-32 px-5 sm:px-8 md:px-10 overflow-hidden text-[#D7E2EA]">
-      {/* ── Top border separator ── */}
+      
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/10" />
 
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">

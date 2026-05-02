@@ -15,11 +15,9 @@ export const AboutSection = () => {
     offset: ['start end', 'end start'],
   });
 
-  // Parallax on decorative images
   const decoY1 = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
   const decoY2 = useTransform(scrollYProgress, [0, 1], ['20%', '-20%']);
 
-  // GSAP text shimmer on heading
   useEffect(() => {
     if (!headingRef.current) return;
     gsap.to(headingRef.current, {
@@ -37,10 +35,9 @@ export const AboutSection = () => {
       id="about"
       className="min-h-screen relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-24 overflow-hidden bg-[#9bbc0f]"
     >
-      {/* ── Top separator ────────── */}
+      
       <div className="absolute top-0 left-0 right-0 gb-section-separator" />
 
-      {/* ── Parallax Decorative Corner Images ── */}
       <motion.div style={{ y: decoY1 }} className="absolute top-[6%] left-[2%] sm:left-[3%] md:left-[5%] w-[70px] sm:w-[100px] md:w-[140px]">
         <FadeIn delay={0.1} x={-80} y={0} duration={0.9}>
           <img src={decorativeImages.topLeft} alt="Deco" className="w-full h-auto object-contain opacity-40" style={{ filter: 'sepia(1) saturate(3) hue-rotate(60deg) brightness(0.6)' }} />
@@ -65,7 +62,6 @@ export const AboutSection = () => {
         </FadeIn>
       </motion.div>
 
-      {/* ── Content ──────────────── */}
       <div className="flex flex-col items-center text-center z-10 w-full max-w-3xl">
         <FadeIn delay={0} y={40}>
           <p className="font-pixel-mono text-[#306230] text-base sm:text-xl mb-4">&gt; PLAYER INFO</p>
@@ -77,7 +73,6 @@ export const AboutSection = () => {
           </h2>
         </FadeIn>
 
-        {/* ── Pixel divider ──────── */}
         <div className="w-32 sm:w-48 my-8 sm:my-12">
           <div className="pixel-divider" />
         </div>
@@ -90,7 +85,6 @@ export const AboutSection = () => {
         </div>
       </div>
 
-      {/* ── Scanlines overlay ────── */}
       <div className="absolute inset-0 pointer-events-none z-20 opacity-30"
         style={{
           background: 'repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(15,56,15,0.08) 2px, rgba(15,56,15,0.08) 4px)',

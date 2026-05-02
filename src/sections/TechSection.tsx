@@ -3,11 +3,9 @@ import { FadeIn } from '../components/FadeIn';
 import { siteContent } from '../content';
 import anime from 'animejs';
 
-// Devicon CDN — tries -original first, then -plain on error
 const getDevIconUrl = (slug: string) =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${slug}/${slug}-original.svg`;
 
-// Some techs only have -plain variant, provide explicit map
 const ICON_OVERRIDES: Record<string, string> = {
   github: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   django: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg',
@@ -80,7 +78,7 @@ export const TechSection = () => {
               className="tech-card bg-white border-3 border-black p-3 sm:p-4 flex flex-col items-center text-center gap-2 sm:gap-3 cursor-default transition-all duration-150 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0px_#000] opacity-0"
               style={{ boxShadow: '3px 3px 0px #000' }}
             >
-              {/* ── Icon ── */}
+              
               <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center p-1">
                 <img
                   src={getIcon(tech.iconSlug)}
@@ -96,12 +94,10 @@ export const TechSection = () => {
                 />
               </div>
 
-              {/* ── Name ── */}
               <h3 className="font-pixel-title text-black uppercase text-[0.45rem] sm:text-[0.5rem] leading-relaxed">
                 {tech.name}
               </h3>
 
-              {/* ── Description ── */}
               <p className="font-pixel-mono text-neutral-400 text-[10px] sm:text-xs uppercase leading-relaxed hidden sm:block">
                 {tech.description}
               </p>
