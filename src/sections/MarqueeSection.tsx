@@ -11,37 +11,23 @@ export const MarqueeSection = () => {
 
   useEffect(() => {
     let animationFrameId: number;
-    let currentScrollY = window.scrollY;
-    let targetOffset = 0;
-
-    const onScroll = () => {
-      currentScrollY = window.scrollY;
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
+    let offset = 0;
 
     const update = () => {
-      if (sectionRef.current) {
-        const sectionTop = sectionRef.current.offsetTop;
-        const calcOffset = (currentScrollY - sectionTop + window.innerHeight) * 0.4;
-        targetOffset += (calcOffset - targetOffset) * 0.1;
-
-        if (row1Ref.current) {
-          row1Ref.current.style.transform = `translate3d(${targetOffset - 1000}px, 0, 0)`;
-        }
-        if (row2Ref.current) {
-          row2Ref.current.style.transform = `translate3d(${-(targetOffset - 1000)}px, 0, 0)`;
-        }
+      offset += 0.8; // Control speed here
+      
+      if (row1Ref.current) {
+        row1Ref.current.style.transform = `translate3d(${-offset % 1000}px, 0, 0)`;
       }
+      if (row2Ref.current) {
+        row2Ref.current.style.transform = `translate3d(${(offset % 1000) - 1000}px, 0, 0)`;
+      }
+      
       animationFrameId = requestAnimationFrame(update);
     };
 
     update();
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (

@@ -74,6 +74,7 @@ function ProjectRow({ project, index }: {
     <motion.div 
       initial="initial"
       whileHover="hover"
+      whileTap="hover"
       className="group relative border-b border-white/10 first:border-t py-10 md:py-16 cursor-pointer overflow-hidden"
     >
       
@@ -139,7 +140,7 @@ export const ProjectsSection = () => {
   return (
     <section ref={sectionRef} id="projects" className="relative bg-[#0C0C0C] py-24 sm:py-32 md:py-40 min-h-screen">
       
-      <motion.div style={{ opacity: canvasOpacity }} className="absolute inset-0 z-0">
+      <motion.div style={{ opacity: canvasOpacity }} className="absolute inset-0 z-0 pointer-events-none">
         <Canvas
           camera={{ position: [0, 0, 8], fov: 45 }}
           dpr={[1, 1.5]}
