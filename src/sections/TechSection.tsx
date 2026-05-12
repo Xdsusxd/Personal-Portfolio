@@ -9,23 +9,12 @@ const getDevIconUrl = (slug: string) =>
 const ICON_OVERRIDES: Record<string, string> = {
   github: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   django: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg',
-  unity: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg',
   nextjs: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
   astro: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg',
   vulkan: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Vulkan.svg',
   opencv: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg',
   rust: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg',
-  jupyter: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-plain.svg',
   kalilinux: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Kali-dragon-icon.svg',
-  autodeskmaya: 'https://cdn.simpleicons.org/autodeskmaya',
-  autodeskrevit: 'https://cdn.simpleicons.org/autodeskrevit',
-  autodesk: 'https://cdn.simpleicons.org/autodesk',
-  adobe: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Corporate_Logo.svg',
-  adobephotoshop: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Photoshop_CC_icon.svg',
-  adobeillustrator: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Illustrator_CC_icon.svg',
-  adobepremierepro: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Premiere_Pro_CC_icon.svg',
-  adobeaftereffects: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_After_Effects_CC_icon.svg',
-  flstudio: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/FL_Studio_logo.svg/512px-FL_Studio_logo.svg.png',
   vuedotjs: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
 };
 
