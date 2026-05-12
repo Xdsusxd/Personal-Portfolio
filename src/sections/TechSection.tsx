@@ -17,6 +17,16 @@ const ICON_OVERRIDES: Record<string, string> = {
   rust: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg',
   jupyter: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-plain.svg',
   kalilinux: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Kali-dragon-icon.svg',
+  autodeskmaya: 'https://cdn.simpleicons.org/autodeskmaya',
+  autodeskrevit: 'https://cdn.simpleicons.org/autodeskrevit',
+  autodesk: 'https://cdn.simpleicons.org/autodesk',
+  adobe: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Corporate_Logo.svg',
+  adobephotoshop: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Photoshop_CC_icon.svg',
+  adobeillustrator: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Illustrator_CC_icon.svg',
+  adobepremierepro: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Premiere_Pro_CC_icon.svg',
+  adobeaftereffects: 'https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_After_Effects_CC_icon.svg',
+  flstudio: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/FL_Studio_logo.svg/512px-FL_Studio_logo.svg.png',
+  vuedotjs: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
 };
 
 const getIcon = (slug: string) => ICON_OVERRIDES[slug] || getDevIconUrl(slug);
@@ -78,7 +88,7 @@ export const TechSection = () => {
               className="tech-card bg-white border-3 border-black p-3 sm:p-4 flex flex-col items-center text-center gap-2 sm:gap-3 cursor-default transition-all duration-150 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[5px_5px_0px_#000] opacity-0"
               style={{ boxShadow: '3px 3px 0px #000' }}
             >
-              
+
               <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center p-1">
                 <img
                   src={getIcon(tech.iconSlug)}
